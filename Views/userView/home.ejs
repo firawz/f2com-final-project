@@ -1,0 +1,44 @@
+<%- include('../partials/01header.ejs') %> 
+<br>
+<%- include('../partials/02navbar.ejs') %> 
+<br>
+
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">USERNAME</th>
+        <th scope="col">PASSWORD</th>
+        <th scope="col">ACTION</th>
+        <th scope="col">CEK KERANJANG KALIAN</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach(el => { %>
+            <tr>
+                <th scope="row"><%= el.id %> </th>
+                <td><%= el.username %> </td>
+                <td> <%= el.password %> </td>
+                <td>
+                    <a href="/user/edit/<%= el.id %>">
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </a>
+                    <a href="/user/delete/<%= el.id %>">
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                    </a>
+                    
+                </td>
+                <td><button class="">Keranjang</button></td>
+            </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+    <a href="/user/add">
+        <button type="button" class="btn btn-primary">Add</button>
+    </a>
+
+
+<%- include('../partials/03footer.ejs') %> 

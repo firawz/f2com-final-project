@@ -4,7 +4,7 @@ class Controller{
     static produkHome(req,res){
         Produk.findAll()
         .then(data=>{
-            res.send(data)
+            res.data
         })
         .catch(err=>{
             res.send(err)

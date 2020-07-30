@@ -15,8 +15,48 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      validate : {
+        isEmpty(value){
+          if(value == ''){
+            throw new Error('Username Tidak Boleh Kosong')
+          }
+        },
+        isLength(value){
+          if(value.length < 3){
+            throw new Error('Username Minimal 3 Karakter')
+          }
+        }
+      }
+    },
+      password: {
+        type: DataTypes.STRING,
+        validate : {
+          isEmpty(value){
+            if(value == ''){
+              throw new Error('Password Tidak Boleh Kosong')
+            }
+          },
+          isLength(value){
+            if(value.length < 6){
+              throw new Error('Password Minimal 6 Karakter')
+            }
+          },
+          isGood(value){
+            const number = '1234567890'
+            let count = 0
+            for (let i = 0; i < value.length; i++) {
+              for (let j = 0; j < number.length; j++) {
+                if(value[i] == number[j]) {count++}
+              }
+            }
+            if(count == 0){
+              throw new Error(`Password harus ada numbernya`)
+            }
+          }
+        }
+      }
   }, {
     sequelize,
     modelName: 'User',
