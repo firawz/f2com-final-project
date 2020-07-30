@@ -1,0 +1,33 @@
+<%- include('./partials/01header.ejs') %> 
+<%- include('./partials/02navbar.ejs') %> 
+
+<div class = "table">
+    <h1>Keranjang Belanja</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Kuantitas</th>
+                <th>Total Harga</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% data.forEach ( objProduk => { %>
+                <tr>
+                    <td><%= objProduk.produk %></td>
+                    <td><%= objProduk.kategori %></td>
+                    <td><%= objProduk.harga %></td>
+                    <td><%= objProduk.kuantitas %></td>
+                    <td><%= objProduk.TotalHarga %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <button type = "button"><a href = "/produk" >Beli</a></button>
+</div>
+
+<%- include('./partials/03footer.ejs') %> 

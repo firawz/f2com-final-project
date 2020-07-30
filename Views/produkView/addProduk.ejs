@@ -1,0 +1,23 @@
+<%- include('./partials/01header.ejs') %> 
+<%- include('./partials/02navbar.ejs') %>
+
+<div class = "addProduk">
+    <h3>Penambahan Jenis Produk</h3>
+    <form action = "/produk/add" method = "POST">
+        <label>Nama </label><br/>
+        <input type = "text" name = "nama" placeholder = "e.g SSD SEAGATE 1 TB"><br/>
+        
+        <label>Harga </label><br/>
+        <input type = "number" name = "harga" placeholder = "e.g 1000000"><br/>
+
+        <label>Stok </label><br/>
+        <input type = "number" name = "stok" placeholder = "e.g 10"><br/>
+
+        <label>Kategori </label><br/>
+        <input type = "text" name = "kategori" placeholder = "e.g Memory"><br/>
+
+        <button type =' submit'>Simpan</button>
+        <button type =' reset'>Batal</button>
+    </form>
+</div>
+<%- include('./partials/03footer.ejs') %> 
