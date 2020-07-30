@@ -1,0 +1,37 @@
+<%- include('./partials/01header.ejs') %> 
+<%- include('./partials/02navbar.ejs') %> 
+
+<div class = "table">
+    <h1>Daftar Produk</h1>
+    <a href = "/produk/add/">Tambahkan Produk</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Kategori</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% data.forEach ( objProduk => { %>
+                <tr>
+                    <td><%= objProduk.nama %></td>
+                    <td><%= objProduk.harga %></td>
+                    <td><%= objProduk.stok %></td>
+                    <td><%= objProduk.kategori %></td>
+                    <td>
+                        <button type = "button"><a href = "/produk/edit/<%= objProduk.id %>" >Edit</a></button>
+                        <button type = "button"><a href = "/produk/delete/<%= objProduk.id %>" >Hapus</a></button>
+                        <button type = "button"><a href = "" >Masukkan ke Keranjang</a></button>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('./partials/03footer.ejs') %> 
