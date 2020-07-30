@@ -1,0 +1,32 @@
+[
+    {
+        "nama": "GTX 1060",
+        "harga": 2500000,
+        "stok": 20,
+        "kategori": "VGA"
+    },
+    {
+        "nama": "GTX 1070",
+        "harga": 5500000,
+        "stok": 20,
+        "kategori": "VGA"
+    },
+    {
+        "nama": "GTX 1080",
+        "harga": 8500000,
+        "stok": 20,
+        "kategori": "VGA"
+    },
+    {
+        "nama": "RTX 2060",
+        "harga": 4500000,
+        "stok": 20,
+        "kategori": "VGA"
+    },
+    {
+        "nama": "RTX 2070",
+        "harga": 6500000,
+        "stok": 20,
+        "kategori": "VGA"
+    }
+]
