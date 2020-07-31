@@ -71,6 +71,46 @@ class Controller{
             res.send(err)
         })
     }
+
+    static keranjang(req,res){
+        let product
+        let keranjang
+        User.findByPk(req.params.id, {include:Produk})
+        .then(data=>{
+            // res.send(data)
+            res.render('keranjangView/listKeranjang', {data})
+        }).catch(err=>{
+            res.send(err)
+        })
+        
+    }
+    
+    static beliGet(req,res){
+        Produk.findAll()
+        .then(data=>{
+            res.render('userView/formBeli', {data})
+        })
+        .catch(err=>{
+            res.send(err)
+        })
+    }
+
+    static beliPost(req,res){
+        // res.send(req.body)
+        Keranjang.create({UserId:req.params.id,
+        ProdukId:req.body.idProduk})
+        .then(data=>{
+            return Keranjang.findAll({where: {UserId: req.params.id}})
+        }).then(data=>{
+            return User.findByPk(req.params.id, {include:[Produk]})
+            // return Produk.create({where: {User: {id : req.params.id}}})
+        }).then(data=>{
+            res.send(data)
+        })
+        .catch(err=>{
+            res.send(err)
+        })
+    }
 }
 
 module.exports = Controller

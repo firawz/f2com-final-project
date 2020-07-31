@@ -1,0 +1,40 @@
+<%- include('../partials/01header.ejs') %> 
+<%- include('../partials/02navbar.ejs') %> 
+
+<div class = "table">
+    <h1>Daftar Produk</h1>
+    <a href = "/produk/add/">Tambahkan Produk</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Kategori</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% data.forEach ( objProduk => { %>
+                <form action="/user/<%= objProduk.id %>/beli" method="POST">
+                    <tr>
+                        <td>
+                        <input type="radio" name="idProduk" id="" value="<%= objProduk.id %>">
+                            <%= objProduk.nama %>
+                        </td>
+                        <td><%= objProduk.harga %></td>
+                        <td><%= objProduk.stok %></td>
+                        <td><%= objProduk.kategori %></td>
+                        <td>
+                            <button type = "submit">Masukan ke keranjang</button>
+                        </td>
+                    </form>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/03footer.ejs') %>  

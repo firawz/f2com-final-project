@@ -1,0 +1,22 @@
+<%- include('../partials/01header.ejs') %> 
+<%- include('../partials/02navbar.ejs') %> 
+
+<div class = "table">
+    <h1>Keranjang Belanja</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Kuantitas</th>
+                <th>Total Harga</th>
+            </tr>
+        </thead>
+>
+        </tbody>
+    </table>
+    <button type = "button"><a href ="/user/<%= data.id %>/beli" >Beli</a></button>
+</div>
+
+<%- include('../partials/03footer.ejs') %>  

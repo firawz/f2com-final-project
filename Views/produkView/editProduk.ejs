@@ -1,0 +1,31 @@
+<%- include('../partials/01header.ejs') %> 
+<%- include('../partials/02navbar.ejs') %> 
+
+<div class = "editForm">
+<h1>Edit Movie</h1>
+<form action="/produk/edit/<%= data.id %>" method="POST">
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Kategori</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+                <tr>
+                    <td><input type = "text" name = "nama" value = "<%= data.nama %>"></td>
+                    <td><input type = "number" name = "harga" value = "<%= data.harga %>"></td>
+                    <td><input type = "number" name = "stok" value = "<%= data.stok %>"></td>
+                    <td><input type = "text" name = "kategori" value = "<%= data.kategori %>"></td> 
+                </tr>
+        </tbody>
+
+    </table>
+    <button type =' submit'>Edit</button>
+</form>
+
+<%- include('../partials/03footer.ejs') %>  

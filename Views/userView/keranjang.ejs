@@ -1,0 +1,38 @@
+<%- include('../partials/01header.ejs') %> 
+<br>
+<%- include('../partials/02navbar.ejs') %> 
+<br>
+<h1> Add Items </h1>
+
+<H2>User : <%= data.username %> </H2>
+<br>
+<br>
+<h3>list item saat ini</h3>
+
+<div class = "table">
+    <h1>Daftar Produk</h1>    
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Kuantitas</th>
+                <th>Kategori</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <form action="/user/<%= data.id %>/beli" method="POST">
+                <select name="nama" id="">
+                    <% product.forEach ( objProduk => { %>
+                        <option value="<%= objProduk.id%>"> <%= objProduk.nama %> </option>
+                        <% }) %>
+                    </select>
+                    <!--  -->
+                </tbody>
+            </table>
+        </div>
+    </form>
+    
+<%- include('../partials/03footer.ejs') %> 

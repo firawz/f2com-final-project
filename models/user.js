@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Keranjang)
+      User.hasMany(models.Produk)
+      User.belongsToMany(models.Produk, {through: models.Keranjang})
     }
   };
   User.init({
