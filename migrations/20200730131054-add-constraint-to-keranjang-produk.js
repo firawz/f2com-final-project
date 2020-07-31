@@ -8,18 +8,18 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    return queryInterface.addConstraint('KeranjangProduks', {
-      fields: ['KeranjangId'],
+    return queryInterface.addConstraint('Keranjangs', {
+      fields: ['UserId'],
       type: 'foreign key',
-      name: 'custom_fkey_constraint_KeranjangId',
+      name: 'custom_fkey_constraint_UserId',
       references: { //Required field
-        table: 'Keranjangs',
+        table: 'Users',
         field: 'id'
       },
       onDelete: 'cascade',
       onUpdate: 'cascade'
     }).then(()=>{
-      return queryInterface.addConstraint('KeranjangProduks', {
+      return queryInterface.addConstraint('Keranjangs', {
         fields: ['ProdukId'],
         type: 'foreign key',
         name: 'custom_fkey_constraint_ProdukId',
@@ -40,7 +40,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    return queryInterface.removeConstraint('KeranjangProduks', 'custom_fkey_constraint_KeranjangId', {})
+    return queryInterface.removeConstraint('KeranjangProduks', 'custom_fkey_constraint_UserId', {})
     .then(()=>{
       return queryInterface.removeConstraint('KeranjangProduks', 'custom_fkey_constraint_ProdukId', {})
     })
