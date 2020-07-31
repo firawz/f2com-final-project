@@ -51,17 +51,9 @@ class Controller{
             stok: req.body.stok,
             kategori: req.body.kategori
         }
-        // Produk.findByPk(+req.params.id)
-        // .then(data=>{
-        //     // data.name = updateProduk.name,
-        //     // data.harga = updateProduk.harga,
-        //     // data.stok = updateProduk.stok,
-        //     // kategori = updateProduk.kategori
-        //     res.send(data)
-        // })
+
         Produk.update(updateProduk, {where : {id:+req.params.id}, returning:true})
         .then (data => {
-            // res.send(data[1])
             res.redirect ("/produk")
         })
         .catch (err => {
